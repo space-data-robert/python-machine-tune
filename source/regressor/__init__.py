@@ -1,1 +1,1 @@
-from .GradientBoostingRegressor import *
+from .XGBRegressor import *
