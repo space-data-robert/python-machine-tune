@@ -6,18 +6,28 @@ from source.classifier import *
 from source.regressor import *
 
 
-def pipeline():
+def pipeline(processor, x_data, y_data):
     pipeline = make_pipeline(
-
+        processor,
+        xgbregressor()
     )
-    return pipeline
+
+    search = optuna_search(
+        pipeline,
+        xgbregressor_params(),
+        'neg_mean_absolute_error'
+    )
+    search.fit(
+        x_data,
+        y_data
+    )
+    result = search.trials_dataframe()
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--is_classifier', type=int, choices=range(2))
+    parser.add_argument('--regressor', type=int, choices=range(2))
     args = parser.parse_args()
 
-    x_data, y_data = read_csv(is_classifier=args.is_classifier)
-
-    # pipeline()
+    pipeline()
 
