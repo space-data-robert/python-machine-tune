@@ -1,2 +1,2 @@
-from .XGBRegressor import *
-from .LGBMRegressor import *
+from .xgboost import *
+from .lgbm import *
