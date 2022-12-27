@@ -2,7 +2,7 @@ import optuna
 from sklearn.ensemble import RandomForestRegressor
 
 
-def lgbmregressor():
+def randomforestregressor():
     scoring = {
         'mse': 'neg_mean_squared_error',
         'mae': 'neg_mean_absolute_percentage_error',
