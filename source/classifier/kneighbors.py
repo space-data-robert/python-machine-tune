@@ -24,7 +24,6 @@ def kneighborsclassifier():
 
     params = {
         'n_estimators': optuna.distributions.IntDistribution(1, 60),
-
         'weights': optuna.distributions.CategoricalDistribution(choices=('uniform', 'distance')),
         'metric': optuna.distributions.CategoricalDistribution(choices=('euclidean', 'manhattan', 'minkowski')),
         'algorithm': optuna.distributions.CategoricalDistribution(choices=('auto', 'ball_tree', 'kd_tree', 'brute')),
