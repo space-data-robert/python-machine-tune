@@ -38,4 +38,6 @@ target/
 *.swp
 *.swo
 .mypy_cache/
+data/
+test/
 
